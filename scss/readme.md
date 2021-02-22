@@ -1,0 +1,1 @@
+./dart-sass/sass.bat .\scss\style.scss .\public\main.css --watch

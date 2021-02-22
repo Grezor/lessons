@@ -1,0 +1,197 @@
+@import "./libs/reset.scss";
+@import "./libs/responsive.scss";
+@import "./base/variables";
+
+*, *::before, *::after {
+    outline: none;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-size: $fontSize;
+    font-family: Arial, sans-serif;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    // background-color: #dedede;
+}
+
+a, a:hover, a:active, a:visited {
+    text-decoration: none;
+    color: #000;
+}
+
+nav {
+    display: flex;
+
+    height: 50px;
+    background-color: $menuDark;
+    color: $menuColor;
+
+    box-shadow: 0 0 16px 1px rgba(20, 20, 20, 0.4);
+
+    .logo {
+        margin-left: 32px;
+        padding: 0 16px;
+        font-size: 2em;
+        line-height: 1.5em;
+        height: 100%;
+    }
+
+    .space {
+        flex: 1;
+    }
+
+    .menu {
+        display: flex;
+        list-style-type: none;
+
+        margin: 0 32px 0 0;
+        height: 100%;
+
+        .menu-item {
+            margin: 0;
+            padding: 0 16px;
+            line-height: 2.2em;
+            font-size: 1.5em;
+
+            &:hover {
+                background-color:lighten($menuDark, 8);
+            }
+
+            a {
+                color: $menuColor;
+            }
+        }
+    }
+}
+
+.list {
+    margin: 16px;
+    padding: 0;
+    list-style-type: none;
+
+    border: 1px solid black;
+    border-radius: 4px;
+
+    li {
+        color: $primaryColor;
+        padding: 8px;
+        font-size: 30px;
+        border-top: 1px solid black;
+        cursor: pointer;
+
+        &:first-child {
+            color: $successColor;
+            border-top: none;
+        }
+
+        &:hover {
+            background-color: darken(#dedede, 8);
+        }
+    }
+}
+
+
+.table{
+    width: 100%;
+    
+    td{
+        border: solid #ccc;
+    }
+
+    thead{
+        background-color: #000;
+        color: #fff;
+        th{
+            background: #000;
+        }
+    }
+}
+
+.btn{
+    background-color: $bleuPrincipal;
+    &:hover{
+        background-color: #584beb;
+    }
+    // ou bien 
+    .theme-vert & {
+        background: green;
+    }
+
+    @media only screen and (max-width: 1200px){
+        padding: 10px;
+    }
+}
+
+.body{
+    padding: 20px;
+    background-color: #fff;
+    font-family: sans-serif;
+}
+/*===== HERITAGE =====*/
+.btn {
+    border-radius: 3px;
+    font-family: sans-serif;
+    padding: 5px 12px;
+    width: 50px;
+    background-color: rgb(105, 143, 214);
+    color: #fff;
+    &:hover{
+        background-color: rgb(67, 98, 155);
+    }
+}
+
+.btn-danger{
+    @extend .btn;
+    background: #FF3C23;
+    &:hover{
+        background: #FF4B45;
+    }
+}
+.card {
+    padding: 10px;
+    box-shadow: 0px 1px 5px rgba(0,0,0, 0.2);
+    border-radius: 3px;
+}
+.card-action{
+    
+    @extend .btn
+}
+
+.card-cancel{
+    @extend .btn-danger;
+    width: 80px;
+}
+
+
+// responsive 
+
+@media #{$media-up} {
+    .btn{
+        width: 100%;
+    }
+}
+
+
+:root {
+    --container-padding: 20px;
+    --container-width: calc(100% - var(--container-padding) * 2);
+    --container-max-width: 1000px;
+}
+
+// .container {
+//     width: calc(100% - 40px);
+//     max-width: 1000px;
+//     margin-left: auto;
+//     margin-right: auto;
+// }
+
+.container {
+    width: var(--container-width);
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+}

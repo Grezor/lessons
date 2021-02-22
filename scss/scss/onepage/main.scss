@@ -1,0 +1,884 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    cursor: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+*::-moz-scrollbar {
+    display: none !important;
+}
+
+*::-ms-scrollbar {
+    display: none !important;
+}
+
+/*
+  BODY
+  */
+body {
+    background: var(--bgColor);
+    width: 100vw;
+    padding: 0px 10vw 0px 10vw;
+    overflow-x: hidden;
+    opacity: 0;
+    animation-name: fade;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    transition-duration: 0.5s;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fadeOut {
+    animation-name: fadeOut;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/*
+  CURSOR
+  */
+.cursor-container .pointer {
+    width: 5pt;
+    height: 5pt;
+    background: var(--linkColor);
+    border-radius: 50%;
+    position: absolute;
+    top: -2.5pt;
+    left: -2.5pt;
+    transform: translate(0, 0);
+    transition: all 0.05s ease;
+}
+
+.cursor-container .cursor-wrapper {
+    position: absolute;
+    top: -15pt;
+    left: -15pt;
+    transform: translate(0, 0);
+    width: 30pt;
+    height: 30pt;
+    transition: all 0.1s ease;
+}
+
+.cursor-container .cursor-wrapper .cursor {
+    width: 30pt;
+    height: 30pt;
+    border: 1pt solid var(--linkColorActive);
+    border-radius: 50%;
+}
+
+/*
+  BLANK SPACE
+  */
+.mini_blank_space {
+    width: 100%;
+    height: 5vh;
+}
+
+.blank_space {
+    width: 100%;
+    height: 10vh;
+}
+
+.big_blank_space {
+    width: 100%;
+    height: 20vh;
+}
+
+.work_separator {
+    height: 0vh !important;
+}
+
+/*
+  LINES
+  */
+.line_container {
+    position: fixed;
+    z-index: -1;
+    width: 80vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.line_container .line {
+    height: 0%;
+    border-left: solid 0.5px var(--lineColor);
+}
+
+.line_container .line_active {
+    height: 100%;
+}
+
+.grid_active {
+    animation-name: grid-animation;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+.grid_inactive {
+    animation-name: grid-animation-reverse;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes grid-animation {
+    0% {
+        height: 0%;
+    }
+
+    100% {
+        height: 100%;
+    }
+}
+
+@keyframes grid-animation-reverse {
+    0% {
+        height: 100%;
+    }
+
+    100% {
+        height: 0%;
+    }
+}
+
+/*
+  RIGHT MENU FIXE
+  */
+.menu_container {
+    position: fixed;
+    right: 0px;
+    width: 10vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu_container a.close_project_js {
+    position: absolute;
+    top: 60px;
+}
+
+.menu_container a.menu_link_js {
+    text-align: right;
+    cursor: pointer;
+    width: 100px;
+    transition-duration: 0.5s;
+    padding-right: 16px;
+    margin: 10px 0px 10px -10px;
+    opacity: 1;
+    position: relative;
+    right: 50px;
+    color: rgba(255, 255, 255, 0);
+}
+
+.menu_container a.menu_link_js.active {
+    transition-duration: 0.5s;
+    margin: 10px 0px 10px 70px;
+    color: var(--linkColorActive);
+}
+
+.menu_container a.menu_link_js.active:after {
+    right: -14px;
+    background-color: var(--mainColor);
+}
+
+.menu_container a.menu_link_js:after {
+    top: -2px;
+    right: -14px;
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: solid 2px var(--mainColor);
+    border-radius: 50%;
+    pointer-events: fill;
+}
+
+.menu_container a.menu_link_js:hover {
+    transition-duration: 0.5s;
+    margin: 10px 0px 10px 70px;
+    pointer-events: fill;
+    color: var(--linkColor);
+}
+
+.menu_container a.menu_link_js:hover:after {
+    right: -14px;
+    background-color: var(--mainColor);
+}
+
+/*
+  DARK LIGHT MODE
+  */
+.switch_button {
+    position: relative;
+    margin-top: 25px;
+    cursor: pointer;
+    box-shadow: var(--boxShadow);
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    width: 70px;
+    height: 32px;
+    background: var(--mainColor);
+    transition-duration: 0.5s;
+}
+
+.switch_button_round {
+    transition-duration: 0.5s;
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+}
+
+.switch_button .light {
+    right: 5px;
+}
+
+.switch_button .dark {
+    left: 5px;
+}
+
+.switch_button img {
+    position: absolute;
+    height: 60%;
+    margin: 0px 6px 0px 6px;
+}
+
+.switch_active {
+    transition-duration: 0.5s;
+    transform: translateX(36px);
+    will-change: transform;
+}
+
+.menu_responsive {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    right: 0;
+    position: fixed;
+    height: 100%;
+    width: 10%;
+    transition-duration: 0.5s;
+}
+
+.menu_responsive a {
+    color: var(--linkColor);
+    transform: rotate(90deg);
+}
+
+/*
+  TOOLS 
+  */
+.tools_container {
+    position: fixed;
+    width: 10vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    left: 0px;
+}
+
+.tools_container p {
+    width: 100%;
+    text-align: center;
+    font-family: source code pro;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--linkColor);
+    line-height: 8px;
+}
+
+.tools_container .tools_panel {
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 5vw;
+    margin: 20px 0px 20px 0px;
+}
+
+.tools_container .tools_panel .color {
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    border-radius: 5px;
+    margin: 5px;
+    opacity: 0.2;
+    transition-duration: 0.5s;
+}
+
+.tools_container .tools_panel .color:hover {
+    transition-duration: 0.5s;
+    opacity: 1;
+}
+
+.tools_container .tools_panel .color_main {
+    background-color: #6053ff;
+}
+
+.tools_container .tools_panel .color_purple {
+    background-color: #84a2e9;
+}
+
+.tools_container .tools_panel .color_dark_pink {
+    background-color: #f150e4;
+}
+
+.tools_container .tools_panel .color_pink {
+    background-color: #fa88ce;
+}
+
+.tools_container .tools_panel .color_dark_blue {
+    background-color: #2847f5;
+}
+
+.tools_container .tools_panel .color_blue {
+    background-color: #5bcbff;
+}
+
+.tools_container .tools_panel .color_green {
+    background-color: #70e075;
+}
+
+.tools_container .tools_panel .color_yellow {
+    background-color: #ffca67;
+}
+
+.tools_container .tools_panel .color_red {
+    background-color: #ff5a5a;
+}
+
+.tools_container .tools_panel .color_orange {
+    background-color: #ff9c5b;
+}
+
+.tools_container .tools_panel .grid_js {
+    cursor: pointer;
+    margin: 5px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.2;
+    transition-duration: 0.5s;
+    fill: var(--linkColor);
+}
+
+.tools_container .tools_panel .grid_js .a {
+    stroke: var(--linkColor);
+}
+
+.tools_container .tools_panel .grid_js:hover {
+    opacity: 1;
+    transition-duration: 0.5s;
+}
+
+.tools_container .tools_panel .active {
+    opacity: 1;
+}
+
+.tools_container .typo_tools h1 {
+    font-size: 20px;
+    margin-bottom: 0px;
+    opacity: 0.2;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.tools_container .typo_tools h1 .active {
+    opacity: 1;
+}
+
+.tools_container .typo_tools h1:hover {
+    opacity: 1;
+    transition-duration: 0.5s;
+}
+
+.tools_container .typo_tools h1.didot {
+    margin-top: 6px;
+    font-family: "Leitura";
+}
+
+.tools_container .typo_tools h1.lato {
+    font-family: "lato";
+    margin-right: 8px;
+}
+
+/*
+  * START
+  */
+section.start_container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+section.start_container header {
+    height: 17vh;
+    position: absolute;
+    top: 0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1;
+}
+
+section.start_container header a {
+    margin-right: 25px;
+}
+
+section.start_container header svg {
+    height: 60px;
+    width: 60px;
+    margin-left: -34px;
+    margin-top: 4px;
+}
+
+section.start_container header svg .a {
+    fill: var(--mainColor);
+    transition: fill 0.5s !important;
+}
+
+section.start_container main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+section.start_container main h1 {
+    font-size: 90px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+section.start_container main h2 {
+    font-size: 38px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+section.start_container main .scroll {
+    position: absolute;
+    bottom: 1vh;
+    font-size: 14px;
+    color: var(--linkColor);
+    text-align: center;
+    line-height: 28px;
+}
+
+section.start_container main .scroll .arrow_down {
+    color: var(--linkColor);
+    animation-name: fadeSpam;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+section.start_container main svg.start_me {
+    position: absolute;
+    width: var(--width_1column);
+    height: auto;
+    right: calc((var(--width_1column) / 2));
+    bottom: 8vh;
+    stroke: none;
+}
+
+section.start_container main svg.start_me .girl {
+    fill: var(--mainColor);
+    transition-duration: 1s;
+}
+
+section.start_container main svg.start_me .stick {
+    fill: var(--linkColorActive);
+}
+
+@keyframes fadeSpam {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/*
+  * SECTION BASE (ABOUT,)
+  */
+section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+}
+
+section .passion_part {
+    margin-bottom: 100px;
+}
+
+section .animes_passion {
+    position: absolute;
+    top: 200px;
+}
+
+section .left_part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: var(--width_1column);
+    width: 50%;
+    height: auto;
+}
+
+section .left_part h1.ui {
+    margin-top: 0px !important;
+}
+
+section .left_part h1.left_title,
+section .left_part h2.left_title {
+    margin-top: 50px;
+    position: relative;
+}
+
+section .left_part h1.left_title:before,
+section .left_part h2.left_title:before {
+    left: var(--left_1column);
+    top: 30px;
+    position: absolute;
+    content: "";
+    width: calc((var(--width_1column) - 20px));
+    border-top: solid 0.5px var(--lineColor);
+}
+
+section .left_part h2.left_title {
+    margin-top: 30px !important;
+}
+
+section .left_part h2.left_title:before {
+    top: 18px;
+}
+
+section .left_part b.skills {
+    display: block;
+    font-size: 14px;
+    word-spacing: 5px;
+    transition: color 0.5s;
+}
+
+section .left_part .resume_button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    width: 70px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: var(--mainColor);
+    transition: background-color 0.5s;
+}
+
+section .left_part .resume_button:hover {
+    transition: background-color 0.5s;
+    background: #85c785;
+}
+
+section .left_part .resume_button a {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    cursor: pointer;
+    left: 14px;
+    top: 12px;
+    color: white;
+}
+
+section .left_part .resume_button svg {
+    position: absolute;
+    width: 13px;
+    right: 16px;
+}
+
+section .left_part .resume_button svg .a {
+    fill: white;
+}
+
+section .full_width {
+    width: 100%;
+}
+
+section .right_part {
+    position: relative;
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: var(--width_1column);
+    text-align: right;
+}
+
+section .right_part h1.right_title,
+section .right_part h2.right_title {
+    margin-top: 50px;
+    position: relative;
+}
+
+section .right_part h1.right_title:after,
+section .right_part h2.right_title:after {
+    right: var(--left_1column);
+    top: 30px;
+    position: absolute;
+    content: "";
+    width: calc((var(--width_1column) - 20px));
+    border-top: solid 0.5px var(--lineColor);
+}
+
+section .right_part h2.right_title:after {
+    top: 20px;
+}
+
+section .right_part .stick_right {
+    position: absolute;
+    right: 0px;
+}
+
+section .right_part .stick_right .a {
+    fill: var(--mainColor);
+    transition: fill 0.5s !important;
+    stroke: transparent;
+}
+
+section .right_part .stick_right .d {
+    transition-duration: 1s;
+    stroke: var(--lineColor);
+}
+
+section .right_part .remove_logo_grid .d {
+    transition-duration: 1s;
+    stroke: transparent;
+}
+
+section .right_no_padding {
+    align-items: center;
+    padding-right: 0px;
+}
+
+section .right_no_padding .ui {
+    opacity: 1;
+}
+
+section .right_no_padding .desktop_start {
+    opacity: 1 !important;
+}
+
+section .right_no_padding .svg_desktop {
+    margin-top: 80px;
+    opacity: 0.5;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+section .right_no_padding .svg_desktop .svg_desk_stroke {
+    stroke: var(--mainColor);
+}
+
+section .right_no_padding .svg_desktop .svg_desk_screen {
+    fill: var(--mainColor);
+}
+
+section .right_no_padding .svg_desktop:hover {
+    transition: 0.5s;
+    opacity: 1;
+}
+
+section .right_no_padding .svg_bubble {
+    margin-top: 60px;
+    opacity: 1;
+    cursor: pointer;
+}
+
+section .right_no_padding .svg_bubble .svg_bubble_stroke {
+    stroke: var(--mainColor);
+}
+
+section .right_no_padding .svg_bubble .svg_bubble_fill {
+    fill: var(--mainColor);
+}
+
+section .right_no_padding img.next {
+    margin-top: 50px;
+    opacity: 0.5;
+    transition: opacity 0.5s;
+    cursor: pointer;
+}
+
+section .right_no_padding img.next:hover {
+    transition: opacity 0.5s;
+    opacity: 1;
+}
+
+section img {
+    z-index: 2;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.5s;
+}
+
+section img:hover {
+    opacity: 1;
+    transition-duration: 0.5s;
+}
+
+section .img_1column {
+    width: var(--width_1column);
+    height: auto;
+    margin: 10px 0px 10px 0px;
+}
+
+section .passion_right {
+    margin-left: var(--width_1column);
+}
+
+section .img_2column {
+    width: var(--width_2column);
+    height: auto;
+    margin: 10px 0px 10px 0px;
+}
+
+section .img_2column .typo .t1,
+section .img_2column .typo .t2 {
+    fill: var(--linkColor);
+    font-size: 50px;
+    letter-spacing: 0.05em;
+}
+
+section .img_2column .typo .f1,
+section .img_2column .typo .f2 {
+    fill: var(--mainColor);
+    font-size: 100px;
+}
+
+section .img_3_2column {
+    width: calc(var(--width_3column) / 2);
+}
+
+section .img_3column {
+    width: var(--width_3column);
+    height: auto;
+    margin: 10px 0px 10px 0px;
+}
+
+section .img_4column {
+    width: var(--width_4column);
+    height: auto;
+    margin: 10px 0px 20px 0px;
+}
+
+section .akatsuki {
+    overflow: hidden;
+    margin-top: 40px;
+}
+
+section .social_logo_container {
+    margin-top: 50px;
+}
+
+section .social_logo_container svg {
+    width: 30px;
+    margin-right: 5px;
+}
+
+section .social_logo_container svg .u {
+    fill: var(--linkColorActive);
+    transition-duration: 0.3s;
+}
+
+section .social_logo_container svg:hover .u {
+    fill: var(--mainColor);
+}
+
+/*
+  * FOOTER
+  */
+footer {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 4vh;
+}
+
+footer a {
+    font-family: lato;
+    opacity: 0.5;
+    text-transform: initial;
+    letter-spacing: 0;
+    font-size: 11px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+/*
+  * IFRAME
+  */
+iframe {
+    width: 100%;
+    border-width: 0px;
+    height: 100vh;
+    animation-name: fade;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+/*# sourceMappingURL=main.css.map */

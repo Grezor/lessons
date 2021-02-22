@@ -1,0 +1,185 @@
+/*
+COLORS
+*/
+
+:root {
+    --titleFont: 'Lato', sans-serif;
+    // --titleFont: "GFS Didot", serif;
+    --textFont: 'Lato', sans-serif;
+    --linkFont: 'Lato', sans-serif;
+    --lineColor: rgba(255, 255, 255, 0.1);
+    --mainColor: #6053ff;
+    --textColor: rgba(255, 255, 255, 0.8);
+    // --bgColor: #0f0c14;
+    --bgColor: black;
+    --titleColor: white;
+    --linkColor: rgba(255, 255, 255, 1);
+    --linkColorActive: white;
+    --left_1column: calc(-80vw / 6);
+    --boxShadow: 0px 0px 15px 2px rgba(97, 83, 255, 0);
+  
+    // RESPONSIVE
+    --width_4column: calc(80vw / 1.5);
+    --width_3column: calc(80vw / 2);
+    --width_2column: calc(80vw / 3);
+    --width_1column: calc(80vw / 6);
+    --leftPartEmpty: 50%;
+    --leftPart: 50%;
+    --rightPart: 50%;
+  }
+  
+  [data-theme="light"] {
+    --titleFont: 'Lato', sans-serif;
+    --textFont: 'Lato', sans-serif;
+    --linkFont: 'Lato', sans-serif;
+    --lineColor: rgba(0, 0, 0, 0.1);
+    // --mainColor: #84a2e9;
+    --mainColor: #6053ff;
+    --textColor: rgba(0, 0, 0, 0.5);
+    --bgColor: white;
+    --titleColor: rgba(0, 0, 0, 0.8);
+    --linkColor: rgba(0, 0, 0, 0.8);
+    --linkColorActive: rgba(0, 0, 0, 0.8);
+    --boxShadow: 0px 0px 15px 2px rgba(50, 68, 228, 0);
+  }
+  
+  /*
+    TYPOGRAPHY
+    */
+  
+  // EUROPA
+  @font-face {
+    font-family: "Europa-Bold";
+    src: url("../fonts/Europa-Bold.woff") format("woff2"),
+      url("../fonts/Europa-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Europa-Regular";
+    src: url("../fonts/Europa-Regular.woff2") format("woff2"),
+      url("../fonts/Europa-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  // ARGESTA
+  
+  @font-face {
+    font-family: "argesta_displayregular";
+    src: url("../fonts/argestadisplay-regular-webfont.woff2") format("woff2"),
+      url("../fonts/argestadisplay-regular-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  // LEITURA DISPLAY
+  
+  @font-face {
+    font-family: "Leitura";
+    src: url("../fonts/LeituraDisplay-Roman.woff2") format("woff2"),
+      url("../fonts/LeituraDisplay-Roman.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  // title
+  h1 {
+    font-family: var(--titleFont);
+    font-size: 48px;
+    color: var(--titleColor);
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  
+  // categories
+  h1.categorie {
+    font-family: var(--titleFont);
+    font-size: 68px;
+    color: var(--titleColor);
+    opacity: 0.2;
+    font-weight: 500;
+    width: 100vw;
+    line-height: 180px;
+  }
+  
+  // subtitle
+  h2 {
+    font-weight: 500;
+    font-family: var(--titleFont);
+    font-size: 28px;
+    color: var(--titleColor);
+    margin-bottom: 15px;
+  }
+  
+  // text
+  p {
+    font-family: var(--textFont);
+    font-size: 18px;
+    color: var(--textColor);
+    font-weight: 200;
+    line-height: 28px;
+    margin-bottom: 15px;
+  }
+  
+  // text bold
+  b {
+    font-family: var(--textFont);
+    color: var(--mainColor);
+    font-weight: 400;
+    line-height: 26px;
+    margin-bottom: 15px;
+    transition: color 0.5s;
+  }
+  
+  p.project_description {
+    margin-top: -8px;
+    margin-bottom: 8px;
+    color: var(--mainColor);
+    font-weight: 400;
+    font-size: 18px;
+    transition: color 0.5s;
+  }
+  
+  // text main color
+  span {
+    color: var(--mainColor);
+    transition: color 0.5s;
+  }
+  
+  span.word{
+    word-spacing: 0px;
+  }
+  
+  // links
+  a {
+    font-family: "source code pro";
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--linkColor);
+    letter-spacing: 2px;
+    font-size: 12px;
+    line-height: 16px;
+    transition-duration: 0.5s;
+  
+    &:hover {
+      color: var(--mainColor);
+      transition-duration: 0.5s;
+    }
+  }
+  
+  a.link_color {
+    z-index: 2;
+    color: var(--mainColor);
+    transition: color 0.5s;
+    line-height: 26px;
+  
+    &:hover {
+      color: var(--linkColor);
+      transition: color 0.5s;
+    }
+  }
+  
