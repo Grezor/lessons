@@ -1,0 +1,1 @@
+/* créer un script node qui affiche le conenu du fichier dont le chemin est passé en argument de la ligne de commande */

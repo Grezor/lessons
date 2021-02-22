@@ -1,0 +1,11 @@
+☐ Si on appuie sur le bouton modifier => apel api update
+☐ Si on appuie sur delete, supprime element
+
+
+☐ Mettre la page ajax page quand on ajoute, ou on supprime
+☐ Savoir si la tache et checked ou non
+☐ Ajouter icons 
+
+
+☐ Mettre les elements du tableau dans le container 
+☐ Quand on supprime un element, il doit prendre le plus grand du tableau si on en rajoute un

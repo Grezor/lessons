@@ -1,0 +1,16 @@
+#cadre {
+    border: 1px solid red;
+}
+
+#bloc {
+    width: 20px;
+    height: 40px;
+    background: red;
+    position: relative;
+    left: 0px;
+}
+
+#ballon {
+    position: relative;
+    left: 0px;
+}
