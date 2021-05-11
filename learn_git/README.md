@@ -79,6 +79,18 @@ Les fichiers ignorés sont généralement des artefacts de build et des fichiers
   - ssh -T git@github.com (fait un test de ssh)
   - git affiche le nom de compte
 
+# fork : 
+
+git clone [nom-du-projet]
+git remote add upstream [projet-officiel-du-repo]
+git remote -v ( voir origin notre github et upstream le repository fork)
+git branch -a 
+ - voir les branches local et global
+git fetch upstream
+git merge upstream/nom-branch
+
+
+
 
 
 
